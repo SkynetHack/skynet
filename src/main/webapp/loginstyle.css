@@ -1,0 +1,151 @@
+body,
+div,
+p,
+a {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  background: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+
+.welcome {
+  padding-left: 20px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+ height: 100px;
+ padding: 20px;
+}
+
+.welcome_p {
+  color: rgb(237,208,168);
+  font-size: 40px;
+ font-weight: bolder;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin: 0 auto;
+  
+}
+
+.login {
+  height: 300px;
+  background-color: white;
+  width: 300px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  margin: auto;
+  
+  /* opacity: 0.9; */
+}
+.signintitle {
+  color: rgb(220, 195, 207);
+  font-size: 30px;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+.middle {
+  background-color: rgb(148,197,219);
+ 
+  padding: auto;
+  padding-top: 20px;
+ 
+  padding-bottom: 20px;
+
+  margin: 0 auto;
+  /* justify-content: space-bet; */
+  /* opacity: .8; */
+}
+
+img {
+  display: block;
+  height: 20%;
+  width: 20%;
+}
+
+form {
+  height: 210px;
+}
+
+.typein {
+  margin-left: 30px;
+  box-sizing: border-box;
+  height: 210px;
+}
+
+.user input {
+  border-radius: 20px;
+  border: 2px solid rgba(43, 172, 43, 0.65);
+  height: 20px;
+  outline: none;
+  padding-left: 10px;
+}
+.pass input {
+  padding-left: 10px;
+  border-radius: 20px;
+  border: 2px solid rgba(43, 172, 43, 0.65);
+  height: 20px;
+  outline: none;
+  margin-left: 15px;
+}
+.user {
+  color: rgb(220, 195, 207);
+  font-weight: bolder;
+  height: 50px;
+}
+
+.pass {
+  color: rgb(220, 195, 207);
+  height: 50px;
+  font-weight: bolder;
+}
+
+.btn {
+  width: 100px;
+  padding-top: 20px;
+  height: 110px;
+  display: flex;
+}
+.btn div {
+  margin-left: 20px;
+  
+}
+
+.in {
+  color: rgb(255, 255, 255);
+  background-color: rgb(131, 192, 118);
+  outline: none;
+  border: 0;
+
+  height: 25px;
+  border-radius: 25px;
+  width: 50px;
+  cursor: pointer;
+}
+.in:focus {
+  background-color: aquamarine;
+}
+
+.btnlogin {
+  border-right: 30px;
+}
+button {
+  cursor: pointer;
+  background-color: rgb(131, 192, 118);
+  color: rgb(255, 255, 255);
+  border: 0;
+
+  width: 50px;
+  height: 25px;
+  border-radius: 25px;
+}
+button:focus {
+  background-color: aquamarine;
+}

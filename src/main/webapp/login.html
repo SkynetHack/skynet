@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+		<link rel="stylesheet" href="loginstyle.css"/>
+		<title>登录页</title>
+		
+	</head>
+	<body style=" background-repeat:no-repeat ;background-size:100% 100%;
+	background-attachment: fixed;">
+	<div>
+
+		<div class="welcome">
+			<div class="welcome_p">
+				欢迎使用小学数学练习平台
+			</div>
+		</div>
+
+		<div class="middle">
+			
+			<div class="login">
+				<div class="signintitle">
+					用户登录
+				</div>
+				<div class="typein">
+					<form action="login" method="post">
+					
+							<div class="user">
+								用户名<input type="text" name="userName" placeholder="请输入用户名"/>
+							</div>
+							<div class="pass">
+								密码<input type="password" name="password" placeholder="请输入密码"/>
+							</div>
+							<div class="btn">
+								<div class="btnlogin">
+									<input class="in" type="submit"  value="登录" />
+								</div>
+								<div class="btnsignup">
+									<input class="in" type="button" value="注册" onclick='location.href=("signup.html")' />
+								</div>
+								<div>
+									<button  type="reset">清空</button>
+								</div>
+							</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+
+	</div>
+		
+		
+	</body>
+</html>

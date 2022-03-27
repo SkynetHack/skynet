@@ -1,0 +1,58 @@
+body,
+div,
+p,
+a {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  background: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+#chart{
+    width:100%   ;
+    height: 500px;
+  
+    
+}
+.head{
+	height:150px;
+    background-color: blueviolet;
+  	
+    margin:0;
+}
+
+.head .head-title{
+padding-top:20px;
+font-size: 30px;
+margin: 0 auto;
+text-align: center;
+color: #fff;
+font-weight: bolder;
+}
+.quit{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#q{
+  
+    font-size: 15px;
+    width: 150px;
+    height: 50px;
+    color: rgb(255, 255, 255);
+    background-color: rgba(43, 172, 43, 0.65);
+    outline: none;
+    border: 0;
+    border-radius: 25px;
+    cursor: pointer;
+}
+#q:focus {
+  background-color: aquamarine;
+  }

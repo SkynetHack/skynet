@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="stylesheet" href="pracstyle.css" />
+    <title>练习</title>
+  </head>
+
+  <script src="./jquery.min.js"></script>
+
+  <body>
+    <div class="head">
+      <div class="prac_title">练习</div>
+    </div>
+
+    <div>
+      <div id="tab"></div>
+      <div class="DownPart">
+        <div class="score">得分:</div>
+        <div class="Btns">
+          <div class="sub-btn back">
+            <button class="btn-item" id="sub">提交答案</button>
+          </div>
+          <div class="back">
+            <button id="refresh" class="btn-item">重做</button>
+          </div>
+          <div class="back">
+            <button id="back" class="btn-item">退出</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    let obj = [];
+    let score = 0;
+    let fresh = document.getElementById("refresh");
+    let subBtn = document.getElementById("sub");
+    let BackBtn = document.getElementById("back");
+    let resShow = document.getElementsByClassName("tab-res");
+    let tab = document.getElementById("tab");
+    let resInput = document.getElementsByClassName("res-input");
+    let scoreDom = document.querySelector(".score");
+
+    fresh.onclick = function () {
+      window.location.reload();
+    };
+
+    BackBtn.onclick = function () {
+      alert("已退出");
+      location.href = "center.jsp";
+    };
+    // let flag = false;
+    subBtn.onclick = function () {
+      fresh.style.value = "再来一次";
+      // if(flag){
+      //   return;
+      // }
+      // flag = true
+      fresh.innerText = "再来一次";
+      for (let i = 0; i < resShow.length; i++) {
+        resShow[i].style.display = "block";
+      }
+      judge();
+
+      subBtn.style.visibility = "hidden";
+
+      tab.style.width = "800px";
+      responseData();
+      subBtn.style.disabled = "disabled";
+      resInput.style.disabled = "disabled";
+    };
+
+    function requestData() {
+      $.ajax({
+        url: "http://localhost:11323/mathprac/GetPracs",
+        dataType: "json",
+        success: function (res) {
+          //  console.log(res);
+          showData(res);
+        },
+        error: function (msg) {
+          alert("ajaxError:" + msg);
+        },
+      });
+    }
+    requestData();
+
+    //绘制题目
+    function showData(data) {
+      let tab = document.querySelector("#tab");
+      for (let i = 0; i < data.length; i += 2) {
+        console.log(data[i].content);
+        console.log(data[i + 1].content);
+        let str;
+        str = data[i].content.replaceAll("*", "×");
+        str = str.replaceAll("\/", "÷");
+
+        let str2;
+        str2 = data[i + 1].content.replaceAll("*", "×");
+        str2 = str2.replaceAll("\/", "÷");
+
+        console.log(data[i].result);
+        console.log(data[i + 1].result);
+        obj.push({
+          str,
+          score: data[i].score,
+          res: data[i].result,
+        });
+        obj.push({
+          str2,
+          score: data[i + 1].score,
+          res: data[i + 1].result,
+        });
+
+        tab.innerHTML += `<div class="tab-item">
+                <div class="tab-test">${obj[i].str}</div>
+                <div class="tab-input"> <input  value="" class="res-input" type="number"> </div>
+                <div class="tab-res">正确答案:${obj[i].res}</div>
+                <div class="tab-test1">${obj[i + 1].str2}</div>
+                <div class="tab-input"> <input value="" class="res-input" type="number"> </div>
+                <div class="tab-res">正确答案:${obj[i + 1].res}</div>
+                </div>
+            `;
+      }
+    }
+
+    //返回前端输入的答案
+    function responseData() {
+      let ansers = [];
+
+      $.ajax({
+        url: `http://localhost:11323/mathprac/GetScore?score=${score}`,
+        dataType: "json",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json;charset=UTF-8",
+        },
+        success: function (req) {
+          alert("成绩已录入");
+
+          //请求成功时处理，一般只用到这一个
+        },
+        error: function () {
+          //请求出错处理
+        },
+      });
+    }
+
+    //获取表单数据,打分
+    function judge() {
+      scoreDom.style.visibility = "visible";
+
+      for (let i = 0; i < resInput.length; i++) {
+
+        
+       
+
+
+        if (obj[i].res === resInput[i].value) {
+          score += 5;
+        }
+      }
+      scoreDom.innerText += score;
+      if (score > 90) {
+        scoreDom.innerText += "  非常优秀！";
+      } else if (score > 70) {
+        scoreDom.innerText += "  表现良好！";
+      } else if (score > 60) {
+        scoreDom.innerText += "  成绩合格。";
+      } else {
+        scoreDom.innerText += "  不及格，再接再厉！";
+      }
+
+      console.log(score);
+    }
+  </script>
+</html>

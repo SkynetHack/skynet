@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="signupstyle.css" />
+    <title>注册页</title>
+  </head>
+  <body
+    style="
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-attachment: fixed;
+    "
+  >
+    <div class="signup">
+      <div class="signuptitle">用户注册</div>
+
+      <div class="middle">
+        <form action="Signup" method="post">
+          <div class="typein">
+            <div class="user input-item">
+              <div class="user_title item-text">用户名：</div>
+              <div class="user_in"><input type="text" name="userName" /></div>
+            </div>
+
+            <div class="pass input-item">
+              <div class="pass_title item-text">密码：</div>
+              <div class="pass_in">
+                <input type="password" name="password" />
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-wrap">
+            <div class="btn_signup">
+              <input class="signup_buttom btn" type="submit" value="注册" />
+            </div>
+            <div class="btn_reset">
+              <button class="signup_buttom btn" type="reset">重置</button>
+            </div>
+            <div class="btn_back">
+              <input
+                class="signup_buttom btn"
+                type="button"
+                onclick='location.href=("login.html")'
+                value="返回"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
